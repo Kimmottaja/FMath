@@ -1,0 +1,32 @@
+body {
+  background-color: transparent;
+  margin: 0;
+  overflow: hidden;
+}
+
+:root {
+  color: white;
+  font-family: 'Segoe UI';
+  font-weight: 100;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  height: 100vh;
+}
+
+i.icon {
+  font-family: 'Segoe MDL2 Assets';
+  font-style: normal;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #ffffff10;
+  }
+}

@@ -1,0 +1,46 @@
+.title-bar {
+
+    --title-bar-height: 32px;
+    height: 32px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    user-select: none;
+
+    & > .title {
+
+        & > img {
+            height: calc( var(--title-bar-height) - 16px );
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        & > span {
+            height: var(--title-bar-height);
+            line-height: var(--title-bar-height);
+            font-size: 14px;
+        }
+    }
+
+    & > .drag-region {
+        opacity: 0.9;
+        margin-top: 4px;
+    }
+
+    & > .window-controls {
+        display: flex;
+        flex-direction: row;
+        & > input {
+            vertical-align: top;
+            display: block;
+            cursor: default;
+            padding: 0px 4px;
+            height: var(--title-bar-height);
+            --highlight-color: #ffffff05;
+
+            &:hover {
+                background-color: var(--highlight-color);
+            }
+        }
+    }
+
+}
