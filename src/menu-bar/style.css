@@ -3,6 +3,11 @@
     flex-direction: row;
     padding-left: 8px;
 
+    & .button {
+        height: 24px;
+        line-height: 24px;
+    }
+
     & .drop-down-menu {
 
         margin: 2px 2px;
@@ -14,7 +19,7 @@
             margin: 2px 0px;
         }
 
-        &[active=true] .drop-down {
+        &[active=true] > .drop-down {
             display: block;
         }
 
@@ -32,8 +37,20 @@
             border-radius: 4px;
             width: 280px;
             background-color: #222222;
+            z-index: 1;
+            user-select: none;
 
-            & > .drop-down-option {
+            &.drop-down-side {
+                right: 0px;
+                top: 0px;
+                transform: translateX(100%);
+                bottom: unset;
+            }
+
+            & .drop-down-option {
+                cursor: pointer;
+                overflow: hidden;
+                white-space: nowrap;
                 padding: 8px;
                 &:hover {
                     background-color: #ffffff10;
@@ -41,9 +58,31 @@
             }
         }
     }
+
+    & .icon {
+        font-size: 18px;
+    }
 }
 
 .shortcut {
     float: right;
     color: #aaa;
+}
+
+.filepath {
+    color: #aaa;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 130px;
+    vertical-align: bottom;
+    float: right;
+}
+
+.expand-indicator {
+    font-family: 'Segoe MDL2 Assets';
+    font-size: 14px;
+    right: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }

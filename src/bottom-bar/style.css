@@ -1,4 +1,26 @@
 .bottom-bar {
-    background-color: #222;
-    height: 24px;
+
+    background-color: #111;
+    height: 28px;
+    border-top: 1px solid #ffffff30;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    & .scale-input {
+        line-height: 28px;
+        font-size: 12px;
+        margin-left: 8px;
+        & input {
+            vertical-align: sub;
+        }
+    }
+
+    & .document-info {
+        line-height: 28px;
+        grid-column: 3/4;
+        font-size: 12px;
+        margin-right: 8px;
+    }
+
 }

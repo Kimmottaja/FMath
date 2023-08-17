@@ -1,3 +1,39 @@
 .editor-area {
-    background-color: white;
+    background-color: #181818;
+    border-top: 1px solid #ffffff30;
+    overflow-y: scroll;
+
+    cursor: text;
+
+    & .text-edit {
+        outline: none;
+        border: none;
+        padding: 16px;
+
+        /*min-height: 100%;*/
+
+        border-bottom: #ffffff30 dotted 1px;
+        white-space: pre;
+
+    }
+
+    & .overflow-area {
+        height: calc( 100% - 50px );
+    }
+
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        border: solid 4px transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        box-shadow: inset 0 0 10px 10px #ffffff50;
+        border: 4px solid transparent;
+    }
+
 }

@@ -6,6 +6,10 @@
     grid-template-columns: auto 1fr auto;
     user-select: none;
 
+    & .save-indicator {
+        margin-right: 8px;
+    }
+
     & > .title {
 
         & > img {
@@ -24,13 +28,15 @@
     & > .drag-region {
         opacity: 0.9;
         margin-top: 4px;
+        text-align: center;
+        font-size: 14px;
+
     }
 
     & > .window-controls {
         display: flex;
         flex-direction: row;
         & > input {
-            vertical-align: top;
             display: block;
             cursor: default;
             padding: 0px 4px;

@@ -1,1 +1,90 @@
-<div class="action-bar"></div>
+<div class="action-bar">
+
+    <div class="action-group" style="grid-template-columns: repeat(7, 36px);">
+
+        <div class="select" id="font-selector">
+            <div class="select-field">
+                <input type="text" class="select-input" id="font-selector-input" value="Arial">
+                <div class="arrow"></div>
+            </div>
+            <ul id="font-selector-options" class="select-options">
+            </ul>
+        </div>
+
+        <div class="select" id="font-size-selector">
+            <div class="select-field">
+                <input type="text" class="select-input" value="12pt">
+                <div class="arrow"></div>
+            </div>
+            <ul class="select-options">
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>14</li>
+                <li>16</li>
+                <li>18</li>
+                <li>20</li>
+                <li>22</li>
+                <li>24</li>
+                <li>26</li>
+                <li>28</li>
+                <li>36</li>
+                <li>48</li>
+                <li>72</li>
+            </ul>
+        </div>
+
+        <div class="button"><i class="icon">&#xE8DB;</i></div>
+        <div class="button"><i class="icon">&#xE8DC;</i></div>
+        <div class="button"><i class="icon">&#xE8DD;</i></div>
+
+        <div class="button toggle-menu"><i class="icon">
+                <span class="icon-layer color" style="color: red;">&#xE891;</span>
+                <span class="icon-layer">&#xE7E6;</span>
+                </i>
+            <div class="button-menu color-menu">
+                <input type="button" value="red" style="--bg: red;">
+                <input type="button" value="yellow" style="--bg: yellow;">
+                <input type="button" value="lime" style="--bg: lime;">
+                <input type="button" value="blue" style="--bg: blue;">
+                <input type="button" value="black" style="--bg: black;">
+                <input type="button" value="white" style="--bg: white;">
+                <input type="color" class="add-color">
+                <input type="button" class="no-color" value="Ei väriä">
+            </div>
+        </div>
+
+        <div class="button toggle-menu"><i class="icon">
+            <span class="icon-layer color" style="color: red; transform: translateY(6px); font-size: 10px;">&#xEC11;</span>
+            <span class="icon-layer">&#xE8D3;</span>
+            </i>
+            <div class="button-menu color-menu">
+                <input type="button" value="red" style="--bg: red;">
+                <input type="button" value="yellow" style="--bg: yellow;">
+                <input type="button" value="lime" style="--bg: lime;">
+                <input type="button" value="blue" style="--bg: blue;">
+                <input type="button" value="black" style="--bg: black;">
+                <input type="button" value="white" style="--bg: white;">
+                <input type="color" class="add-color">
+                <input type="button" class="no-color" value="Ei väriä">
+            </div>
+        </div>
+
+        <span class="action-group-label">Fontti</span>
+    </div>
+
+    <hr class="vertical">
+
+    <div class="action-group" style="grid-template-columns: repeat(3, 36px);">
+        <div class="button"><i class="icon">&#xE8E2;</i></div>
+        <div class="button"><i class="icon">&#xE8E3;</i></div>
+        <div class="button"><i class="icon">&#xE8E4;</i></div>
+        <div class="button"><i class="icon">&#xE8FD;</i></div>
+        <span class="action-group-label">Kappale</span>
+    </div>
+
+    <hr class="vertical">
+
+</div>

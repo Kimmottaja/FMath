@@ -1,0 +1,80 @@
+.select {
+    position: relative;
+
+    & .select-options {
+        display: none;
+        position: absolute;
+        width: 100%;
+        max-height: 50vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        list-style-type: none;
+        padding-left: 0px;
+        background-color: #181818;
+        margin: 0px;
+        z-index: 1;
+        margin-top: 2px;
+        border-radius: 4px;
+        border: 1px solid #888;
+
+
+        & li {
+            cursor: pointer;
+            padding: 2px 6px;
+            &:hover {
+                background-color: #ffffff0d;
+            }
+        }
+
+    }
+
+    & .select-field {
+        width: 100%;
+        border: 1px solid var(--tw1);
+        height: 34px;
+        border-radius: 4px;
+
+        &:focus-within {
+            border-color: #888;
+        }
+
+        & .arrow {
+            width: 0px;
+            height: 0px;
+            border: 8px solid white;
+            border-width: 6px 6px 0px 6px;
+            border-color: white transparent transparent transparent;
+            position: absolute;
+            right: 6px;
+            top: 14px;
+            cursor: pointer;
+        }
+
+    }
+
+    & .select-input {
+        outline: none;
+        border: none;
+        padding: 0px;
+        background-color: transparent;
+        color: white;
+        padding-left: 6px;
+        height: 100%;
+        width: calc( 100% - 36px );
+        font-size: 16px;
+
+        &::after {
+            content: "hello";
+            display: block;
+        }
+
+    }
+}
+
+#font-selector {
+    grid-column: span 5;
+}
+
+#font-size-selector {
+    grid-column: span 2;
+}
