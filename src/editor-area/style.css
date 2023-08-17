@@ -6,18 +6,21 @@
     cursor: text;
 
     & .text-edit {
+        
+        transform-origin: 0px 0px;
+        scale: var(--editor-zoom);
         outline: none;
         border: none;
         padding: 16px;
 
         /*min-height: 100%;*/
 
-        border-bottom: #ffffff30 dotted 1px;
-        white-space: pre;
-
+        white-space: pre-wrap;
+        
     }
-
+    
     & .overflow-area {
+        border-top: #ffffff30 dotted 1px;
         height: calc( 100% - 50px );
     }
 
@@ -37,3 +40,4 @@
     }
 
 }
+

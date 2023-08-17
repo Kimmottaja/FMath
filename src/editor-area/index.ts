@@ -14,6 +14,24 @@ for(const el of document.querySelectorAll('.editor-area')) {
 
 const edit_field = document.getElementById('edit-field') as HTMLElement;
 const document_info = document.getElementById('document-info') as HTMLElement;
+const scale_flow_offset = document.getElementById('scale-flow-offset') as HTMLElement;
+const zoom_input = document.getElementById('zoom-input') as HTMLInputElement;
+const zoom_input_value = document.getElementById('zoom-input-value') as HTMLElement;
+
+zoom_input.oninput = () => {
+
+    const zoom = Number(zoom_input.value);
+
+    edit_field.style.setProperty('--editor-zoom', zoom + '%');
+    zoom_input_value.innerText = zoom + '%';
+    edit_field.style.width = scale_flow_offset.getBoundingClientRect().width/(zoom/100) - 32 + "px";
+
+    correctEditFieldHeight();
+}
+
+function correctEditFieldHeight() {
+    scale_flow_offset.style.height = edit_field.getBoundingClientRect().height + "px";
+}
 
 function countWords(s: string){
     s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
@@ -25,22 +43,14 @@ function countWords(s: string){
 
 edit_field.addEventListener('input', () => {
 
+    correctEditFieldHeight();
+
     const word_count = countWords(edit_field.innerText);
     const char_count = edit_field.innerText.length;
     const char_count_es = edit_field.innerText.replace(/\s/g,'').length;
 
     document_info.innerText = `${word_count} sanaa, ${char_count} merkkiä, ${char_count_es} merkkiä ilman välilyöntejä`;
 })
-
-function insertTextAtCaret(text: string) {
-    var sel, range;
-    sel = window.getSelection() as Selection;
-    if (sel.getRangeAt && sel.rangeCount) {
-        range = sel.getRangeAt(0);
-        range.deleteContents();
-        range.insertNode( document.createTextNode(text) );
-    }
-}
 
 edit_field.addEventListener('keydown', evt => {
     if(evt.key == "Tab") {
