@@ -22,6 +22,9 @@ export function TitleBar(el: HTMLDivElement) : HTMLDivElement {
     return el;
 }
 
+export const saveStatusDisp = document.getElementById('save-status') as HTMLElement;
+export const saveIndicator = document.getElementById('save-indicator') as HTMLElement;
+export const titleText = document.getElementById('title-text') as HTMLElement;
 
 for( const element of document.getElementsByClassName('title-bar') ){
     TitleBar(element as HTMLDivElement); 

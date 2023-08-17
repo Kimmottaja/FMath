@@ -4,12 +4,12 @@
             <a>Tiedosto</a>
         </div>
         <div class="drop-down">
-            <div class="drop-down-option"><a>Tallenna<span class="shortcut">Ctrl+S</span></a></div>
-            <div class="drop-down-option"><a>Tallenna nimellä<span class="shortcut">Ctrl+Shift+S</span></a></div>
+            <div class="drop-down-option" onclick="actions.save()"><a>Tallenna<span class="shortcut">Ctrl+S</span></a></div>
+            <div class="drop-down-option" onclick="actions.save_as()"><a>Tallenna nimellä<span class="shortcut">Ctrl+Shift+S</span></a></div>
             <hr>
-            <div class="drop-down-option"><a>Uusi<span class="shortcut">Ctrl+N</span></a></div>
+            <div class="drop-down-option" onclick="actions.new()"><a>Uusi<span class="shortcut">Ctrl+N</span></a></div>
             <hr>
-            <div class="drop-down-option"><a>Avaa<span class="shortcut">Ctrl+O</span></a></div>
+            <div class="drop-down-option" onclick="actions.open()"><a>Avaa<span class="shortcut">Ctrl+O</span></a></div>
             <div class="drop-down-menu">
                 <div class="drop-down-toggle drop-down-option">
                     <a>Avaa viimeaikainen <span class="expand-indicator">&#xE974;</span></a>
@@ -51,7 +51,7 @@
             &#xE7A7;
         </i></a>
     </div>
-    <div class="button">
+    <div class="button" onclick="actions.save()">
         <a><i class="icon">
             &#xE74E;
         </i></a>

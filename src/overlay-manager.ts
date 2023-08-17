@@ -66,18 +66,20 @@ window.addEventListener('click', evt => {
         }
     }
 
+    closeAllOverlays();
+
+});
+
+export function closeAllOverlays() {
     overlays.forEach(
         ol => {
             ol.closeFunction();
         }
     );
-
     overlays = [];
     barriers = [];
-
     updateOverlayVariables();
-
-});
+}
 
 function updateOverlayVariables() {
     if(temp_overlays.length > 0) {

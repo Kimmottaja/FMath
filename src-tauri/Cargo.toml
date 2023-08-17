@@ -21,6 +21,8 @@ tauri = { version = "1.1.1", features = ["api-all"] }
 window-shadows = "0.2.1"
 window-vibrancy = "0.4.0"
 font-loader = "0.11.0"
+dirs-next = "2.0.0"
+yazi = "0.1.6"
 
 [features]
 # by default Tauri runs in production mode

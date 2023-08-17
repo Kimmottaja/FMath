@@ -86,3 +86,8 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+& a {
+    color: white;
+    text-decoration: none;
+}

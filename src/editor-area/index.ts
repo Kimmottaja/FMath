@@ -1,4 +1,5 @@
 import './style.css'
+import { stateModified } from '../state';
 
 for(const el of document.querySelectorAll('.editor-area')) {
     const overflowArea = el.querySelector('.overflow-area') as HTMLElement;
@@ -29,7 +30,7 @@ zoom_input.oninput = () => {
     correctEditFieldHeight();
 }
 
-function correctEditFieldHeight() {
+export function correctEditFieldHeight() {
     scale_flow_offset.style.height = edit_field.getBoundingClientRect().height + "px";
 }
 
@@ -44,6 +45,8 @@ function countWords(s: string){
 edit_field.addEventListener('input', () => {
 
     correctEditFieldHeight();
+    
+    stateModified();
 
     const word_count = countWords(edit_field.innerText);
     const char_count = edit_field.innerText.length;
