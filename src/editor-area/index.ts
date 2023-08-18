@@ -1,6 +1,8 @@
 import './style.css'
 import { stateModified } from '../state';
 import { MathEditElement } from '../math-input';
+import { inCurrentBlobs } from '../blob-cleanup';
+import { tex2url } from '../text2svg';
 
 for(const el of document.querySelectorAll('.editor-area')) {
     const overflowArea = el.querySelector('.overflow-area') as HTMLElement;
@@ -73,3 +75,33 @@ edit_field.addEventListener('click', evt => {
         math_field.element.focus();
     }
 })
+
+edit_field.addEventListener('paste', evt => {
+
+    evt.preventDefault();
+    var input = evt.clipboardData?.getData("text/html");
+
+    if(input) {
+        input = input.substring(input.indexOf("<!--StartFragment-->") + 20, input.indexOf("<!--EndFragment-->")); // Extract the fragment
+        input = input.replace( /style="[^\"]*"/g, ""); // Remove all style tags
+    }
+
+    const frag = document.createRange().createContextualFragment(input||"");
+
+    for( const img of frag.querySelectorAll('.math-field-img') ) {
+
+        if(!inCurrentBlobs( (img as HTMLImageElement).src )) {
+            (img as HTMLImageElement).src = tex2url( img.getAttribute('latex') as string );
+        }
+    }
+
+    const sel = window.getSelection();
+    const range = sel?.getRangeAt(0);
+    range?.deleteContents();
+
+    range?.insertNode(frag);
+    range?.collapse(false);
+
+    window.setTimeout( correctEditFieldHeight, 100 );
+
+});

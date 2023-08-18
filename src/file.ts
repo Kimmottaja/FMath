@@ -1,6 +1,7 @@
-import {invoke} from '@tauri-apps/api/tauri';
+import { invoke } from '@tauri-apps/api/tauri';
 import { edit_field } from './editor-area';
 import { exists } from '@tauri-apps/api/fs';
+import { addBlob } from './blob-cleanup';
 
 interface file {
     data: string,
@@ -45,7 +46,9 @@ export async function openAndLoadFile(path: string) {
         const id = Number(images[i].getAttribute('id'));
         images[i].removeAttribute('id');
         const image_data = FILE.images[id];
-        images[i].src = URL.createObjectURL( new Blob([image_data.data], {type: image_data.type}) );
+        const data_url = URL.createObjectURL( new Blob([image_data.data], {type: image_data.type}) );
+        images[i].src = data_url;
+        addBlob(data_url);
     }
 
 }

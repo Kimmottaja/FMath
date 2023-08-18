@@ -18,9 +18,9 @@ export class MathEditElement {
 
     blur(this: MathfieldElement) {
         if(this.value != "") {
-            const img = tex2svg( compatibilityLatex( this.value ) );
+            const img = tex2svg( this.value );
             img.classList.add('math-field-img');
-            img.setAttribute('latex', this.value)
+            img.setAttribute('latex', this.value);
             this.replaceWith(img);
         } else {
             this.remove();
@@ -32,13 +32,4 @@ export class MathEditElement {
         window.setTimeout(correctEditFieldHeight, 10);
     }
 
-}
-
-function compatibilityLatex( latex : string ) : string {
-    latex = latex.replaceAll('\\differentialD', '\\text{d}');
-    latex = latex.replaceAll('\\degree', '\u00B0');
-    latex = latex.replaceAll('\\N', '\\mathbb{N}');
-    latex = latex.replaceAll('\\natnums', '\\mathbb{N}');
-    latex = latex.replaceAll('\\placeholder', '');
-    return latex;
 }

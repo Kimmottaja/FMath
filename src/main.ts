@@ -19,3 +19,5 @@ import { edit_field } from './editor-area'
 
 
 edit_field.focus();
+
+import './blob-cleanup'
