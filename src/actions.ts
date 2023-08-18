@@ -6,7 +6,6 @@ import { correctEditFieldHeight } from "./editor-area";
 import { stateFileOpened, stateFileSaved, STATE } from "./state";
 import { getFilename, getDirName } from "./utils";
 import { UpdateLastOpenedFiles, UpdateUserFolder } from "./local-storage";
-import { error } from "console";
 
 export function actionSave() {
     closeAllOverlays();

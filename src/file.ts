@@ -1,8 +1,6 @@
 import {invoke} from '@tauri-apps/api/tauri';
-import { IdGen } from './utils';
 import { edit_field } from './editor-area';
 import { exists } from '@tauri-apps/api/fs';
-import { message } from '@tauri-apps/api/dialog'
 
 interface file {
     data: string,
