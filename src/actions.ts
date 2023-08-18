@@ -6,6 +6,7 @@ import { correctEditFieldHeight } from "./editor-area";
 import { stateFileOpened, stateFileSaved, STATE } from "./state";
 import { getFilename, getDirName } from "./utils";
 import { UpdateLastOpenedFiles, UpdateUserFolder } from "./local-storage";
+import { updateWordCounter } from "./editor-area";
 
 export function actionSave() {
     closeAllOverlays();
@@ -60,6 +61,7 @@ export function actionOpen() {
                             UpdateLastOpenedFiles(path, getFilename(path));
                             UpdateUserFolder(getDirName(path));
                             window.setTimeout(correctEditFieldHeight, 100);
+                            updateWordCounter();
                         },
                         error => { message(error as string, { title: 'Error opening file', type: "error" }) }
                     );
@@ -79,6 +81,7 @@ export function actionOpenFile(path: string) {
                 stateFileOpened(path, getFilename(path));
                 UpdateLastOpenedFiles(path, getFilename(path));
                 UpdateUserFolder(getDirName(path));
+                updateWordCounter();
                 window.setTimeout(correctEditFieldHeight, 100);
             },
             error => { message(error as string, { title: 'Error opening file', type: "error" }) }

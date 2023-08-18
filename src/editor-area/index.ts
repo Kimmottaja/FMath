@@ -22,13 +22,23 @@ const scale_flow_offset = document.getElementById('scale-flow-offset') as HTMLEl
 const zoom_input = document.getElementById('zoom-input') as HTMLInputElement;
 const zoom_input_value = document.getElementById('zoom-input-value') as HTMLElement;
 
+window.onresize = () => {
+    const zoom = Number(zoom_input.value);
+
+    edit_field.style.setProperty('--editor-zoom', zoom + '%');
+    zoom_input_value.innerText = zoom + '%';
+    edit_field.style.width = window.innerWidth / (zoom / 100) - 32 - 16 + "px";
+
+    correctEditFieldHeight();
+}
+
 zoom_input.oninput = () => {
 
     const zoom = Number(zoom_input.value);
 
     edit_field.style.setProperty('--editor-zoom', zoom + '%');
     zoom_input_value.innerText = zoom + '%';
-    edit_field.style.width = scale_flow_offset.getBoundingClientRect().width / (zoom / 100) - 32 + "px";
+    edit_field.style.width = window.innerWidth / (zoom / 100) - 32 - 16 + "px";
 
     correctEditFieldHeight();
 }
@@ -51,12 +61,17 @@ edit_field.addEventListener('input', () => {
 
     stateModified();
 
+    updateWordCounter();
+
+})
+
+export function updateWordCounter() {
     const word_count = countWords(edit_field.innerText);
     const char_count = edit_field.innerText.length;
     const char_count_es = edit_field.innerText.replace(/\s/g, '').length;
-
+    
     document_info.innerText = `${word_count} sanaa, ${char_count} merkkiä, ${char_count_es} merkkiä ilman välilyöntejä`;
-})
+}
 
 edit_field.addEventListener('keydown', evt => {
     if (evt.key == "Tab") {

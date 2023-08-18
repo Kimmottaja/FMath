@@ -23,10 +23,10 @@ document.addEventListener('keydown', e => {
                 }
             break;
             case "z":
-                e.preventDefault();
+                //e.preventDefault();
             break;
             case "y":
-                e.preventDefault();
+                //e.preventDefault();
             break;
             case "Z":
                 e.preventDefault();
