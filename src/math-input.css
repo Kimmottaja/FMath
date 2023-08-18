@@ -1,0 +1,23 @@
+math-field::part(virtual-keyboard-toggle) {
+    display: none;
+}
+
+math-field {
+    color: white;
+    --caret-color: white;
+    background-color: #ffffff05;
+    --selection-color: black;
+    --contains-highlight-background-color: #ffffff10;
+    border: 1px solid white;
+    outline: none;
+    margin: 2px;
+}
+
+.math-field-img {
+    vertical-align: middle;
+    padding: 10px 4px;
+    border-radius: 2px;
+    background-color: #ffffff05;
+    border: 1px solid #ffffff10;
+    margin: 2px;
+}

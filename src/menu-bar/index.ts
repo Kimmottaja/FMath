@@ -1,6 +1,8 @@
 import './style.css'
 import { newOverlay, closeOverlay } from '../overlay-manager';
 
+export const openedFilesList = document.getElementById('openedFilesList') as HTMLElement;
+
 for( let el of document.querySelectorAll('.drop-down-menu') ) {
     const toggle = el.querySelector('.drop-down-toggle') as HTMLElement;
     toggle.onclick = () => {

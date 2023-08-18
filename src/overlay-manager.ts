@@ -1,13 +1,7 @@
+import { IdGen } from "./utils";
+
 var overlays : overlay[] = [];
 var barriers : HTMLElement[] = [];
-
-function IdGen() {
-    var counter = 0;
-    return function() : number {
-        counter++;
-        return counter;
-    }
-}
 
 const gen = IdGen();
 

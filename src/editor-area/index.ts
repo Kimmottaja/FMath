@@ -1,5 +1,6 @@
 import './style.css'
 import { stateModified } from '../state';
+import { MathEditElement } from '../math-input';
 
 for(const el of document.querySelectorAll('.editor-area')) {
     const overflowArea = el.querySelector('.overflow-area') as HTMLElement;
@@ -13,7 +14,7 @@ for(const el of document.querySelectorAll('.editor-area')) {
 
 }
 
-const edit_field = document.getElementById('edit-field') as HTMLElement;
+export const edit_field = document.getElementById('edit-field') as HTMLElement;
 const document_info = document.getElementById('document-info') as HTMLElement;
 const scale_flow_offset = document.getElementById('scale-flow-offset') as HTMLElement;
 const zoom_input = document.getElementById('zoom-input') as HTMLInputElement;
@@ -60,5 +61,15 @@ edit_field.addEventListener('keydown', evt => {
         console.log('hello')
         evt.preventDefault();
         document.execCommand('insertHTML', false, '&#009');
+    }
+})
+
+edit_field.addEventListener('click', evt => {
+    if((evt.target as HTMLElement).className == "math-field-img") {
+        const img = evt.target as HTMLImageElement;
+        const math_field = new MathEditElement;
+        math_field.element.value = img.getAttribute('latex') || '';
+        img.replaceWith(math_field.element);
+        math_field.element.focus();
     }
 })

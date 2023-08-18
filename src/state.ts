@@ -35,7 +35,7 @@ export function stateFileSaved(path: string, name: string) {
     const d = new Date;
     STATE.lastSaved = d;
     saveIndicator.style.display = "none";
-    saveStatusDisp.innerText = `Viimeksi tallennettu klo. ${d.getHours()+":"+d.getMinutes()}`
+    saveStatusDisp.innerText = `Viimeksi tallennettu klo. ${d.getHours()+"."+d.getMinutes().toString().padStart(2,'0')}`
 }
 
 export function stateFileOpened(path: string, name: string) {

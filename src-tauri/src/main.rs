@@ -32,7 +32,10 @@ fn compress_and_save(data: String, path: String) {
 
 #[tauri::command]
 fn decompress_and_load(path: String) -> String {
-  let bytes = fs::read(path).unwrap();
+  let bytes = match fs::read(path) {
+    Ok(data) => data,
+    Err(error) => return "error".to_string(),
+  };
   let uncompressed = yazi::decompress(&bytes, yazi::Format::Zlib).unwrap().0;
   std::str::from_utf8(&uncompressed).unwrap().to_string()
 }
