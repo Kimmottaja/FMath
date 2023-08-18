@@ -1,6 +1,4 @@
-import { error } from "console";
 import { edit_field } from "./editor-area";
-import { tex2url } from "./text2svg";
 
 var CURRENT_BLOBS : string[] = [];
 

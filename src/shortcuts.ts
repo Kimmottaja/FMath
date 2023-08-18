@@ -1,5 +1,5 @@
 import { edit_field } from "./editor-area";
-import { MathEditElement } from "./math-input";
+import { createMathField } from "./math-input";
 import { correctEditFieldHeight } from "./editor-area";
 
 document.addEventListener('keydown', e => {
@@ -15,12 +15,21 @@ document.addEventListener('keydown', e => {
                     const range = sel?.getRangeAt(0);
                     range?.deleteContents();
 
-                    const math_field = new MathEditElement;
+                    const math_field = createMathField();
 
-                    range?.insertNode(math_field.element);
-                    math_field.element.focus();
+                    range?.insertNode(math_field);
+                    math_field.focus();
                     correctEditFieldHeight();
                 }
+            break;
+            case "z":
+                e.preventDefault();
+            break;
+            case "y":
+                e.preventDefault();
+            break;
+            case "Z":
+                e.preventDefault();
             break;
             default:
         }
