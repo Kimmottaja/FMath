@@ -1,2 +1,5 @@
 import './style.css'
 import './selector.css'
+import './select'
+import './font-select'
+import './font-size-select'

@@ -13,3 +13,7 @@ export function IdGen(state: number = 0) {
         return counter;
     }
 }
+
+export function toSearchString(s : string) : string {
+    return s.toLowerCase().replace(/\s/g, '');
+}
